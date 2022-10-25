@@ -87,8 +87,12 @@ const Index = () => {
         <Box
           width="100%"
           sx={{
+            background: "#000",
+            color: "#fff",
             boxShadow: 4,
             height: "80px",
+            position: "fixed",
+            top: "0px",
           }}
         >
           <Stack
@@ -181,11 +185,11 @@ const Index = () => {
                   }}
                   sx={{
                     borderBottom: location.pathname.includes(item.path) //For the line under the navbar items
-                      ? `2px solid #000`
+                      ? `2px solid #bfbf`
                       : "none",
                     fontSize: "1.5rem",
                     fontWeight: "bold",
-                    color: "#19191b",
+                    color: "#fff",
                   }}
                 >
                   {item.name}
