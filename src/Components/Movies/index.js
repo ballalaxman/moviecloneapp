@@ -1,9 +1,10 @@
 import React from "react";
+import Hero from "./Hero";
 
 export const Index = () => {
   return (
     <div>
-      <h1>Movies</h1>
+      <Hero />
     </div>
   );
 };
