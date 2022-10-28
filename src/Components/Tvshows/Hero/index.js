@@ -22,41 +22,11 @@ export const Index = () => {
   const [popularTvshows, setpopularTvshows] = useState(null);
   const [sort, setSort] = useState("");
 
-  // useEffect(() => {
-  //   if (sort == popularity.desc) {
-  //     axios
-  //       .get(`${BASE_URL}` + "/discover/tv?sort_by="`${sort}` + `${API_KEY}`)
-  //       .then((res) => {
-  //         setpopularTvshows(res.data.results);
-  //       });
-  //   } else if (sort == first_air_date.desc) {
-  //     axios
-  //       .get(`${BASE_URL}` + "/discover/tv?sort_by="`${sort}` + `${API_KEY}`)
-  //       .then((res) => {
-  //         setpopularTvshows(res.data.results);
-  //       });
-  //   } else if (sort == vote_average.desc) {
-  //     axios
-  //       .get(`${BASE_URL}` + "/discover/tv?sort_by="`${sort}` + `${API_KEY}`)
-  //       .then((res) => {
-  //         setpopularTvshows(res.data.results);
-  //       });
-  //   }
-  // }, [sort]);
-
   useEffect(() => {
-    if (sort == 1) {
+    if (sort == 2) {
       axios
         .get(
-          "https://api.themoviedb.org/3/discover/tv?sort_by=popularity.desc&api_key=8af676c968edd09419e7361d6dcd4805"
-        )
-        .then((res) => {
-          setpopularTvshows(res.data.results);
-        });
-    } else if (sort == 2) {
-      axios
-        .get(
-          "https://api.themoviedb.org/3/discover/tv?sort_by=first_air_date.desc&api_key=8af676c968edd09419e7361d6dcd4805"
+          "https://api.themoviedb.org/3/discover/tv?sort_by=primary_release_date.desc&api_key=8af676c968edd09419e7361d6dcd4805"
         )
         .then((res) => {
           setpopularTvshows(res.data.results);
@@ -69,12 +39,20 @@ export const Index = () => {
         .then((res) => {
           setpopularTvshows(res.data.results);
         });
+    } else {
+      axios
+        .get(
+          "https://api.themoviedb.org/3/discover/tv?sort_by=popularity.desc&api_key=8af676c968edd09419e7361d6dcd4805"
+        )
+        .then((res) => {
+          setpopularTvshows(res.data.results);
+        });
     }
   }, [sort]);
 
-  // useEffect(() => {
-  //   console.log(sort);
-  // }, [sort]);
+  useEffect(() => {
+    console.log(popularTvshows);
+  }, [sort]);
 
   const handleChange = (event) => {
     setSort(event.target.value);
@@ -102,7 +80,7 @@ export const Index = () => {
               fontWeight: "550",
             }}
           >
-            Popular shows
+            Tv shows
           </Typography>
           <Box sx={{ minWidth: 220 }}>
             <FormControl fullWidth>

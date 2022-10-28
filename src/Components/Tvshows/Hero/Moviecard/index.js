@@ -1,7 +1,8 @@
 import React from "react";
-import Rating from "@mui/material/Rating";
 import { Button, Typography } from "@mui/material";
 import { Box, Stack } from "@mui/system";
+import poster from "../../../../Images/poster.jpg";
+import star from "../../../../Images/star.png";
 
 export const Moviecard = ({ item, image }) => {
   const [mouseHover, setMouseHover] = React.useState(false);
@@ -18,7 +19,9 @@ export const Moviecard = ({ item, image }) => {
         onMouseOver={onmouseOver}
         onMouseOut={onmouseLeave}
         sx={{
-          backgroundImage: `url(${image + item.poster_path})`,
+          backgroundImage: item.poster_path
+            ? `url(${image + item.poster_path})`
+            : `url(${poster})`,
 
           width: "280px",
           height: "450px",
@@ -56,7 +59,9 @@ export const Moviecard = ({ item, image }) => {
                 color: "white",
               }}
             >
-              {item.overview}
+              {item.overview
+                ? item.overview.slice(0, 180) + "..."
+                : "No Description Avilable"}
             </Typography>
             <Stack direction="row" spacing={14}>
               <Typography
@@ -76,13 +81,23 @@ export const Moviecard = ({ item, image }) => {
                   color: "white",
                 }}
               >
-                Director
+                Votes
                 <br />
                 {item.vote_count}
               </Typography>
             </Stack>
-            <Stack direction="row" spacing={8}>
-              <Rating name="read-only" value={item.vote_average} readOnly />
+            <Stack direction="row" spacing={17}>
+              {/* <Rating name="read-only" value={item.vote_average} readOnly /> */}
+              <Stack direction="row" spacing={1}>
+                <img src={star} width="20px" height="20px" />
+                <Typography
+                  sx={{
+                    color: "#fff",
+                  }}
+                >
+                  {item.vote_average}
+                </Typography>
+              </Stack>
               <Button
                 sx={{
                   width: "60px",
