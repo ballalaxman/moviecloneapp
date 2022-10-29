@@ -1,6 +1,8 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
 import MainLayout from "../Layouts";
+import Moviedetails from "../Components/Movies/Moviedetails";
+import Tvshowdetails from "../Components/Tvshows/Tvshowdetails";
 
 const Home = React.lazy(() => import("../Pages/home"));
 const Movies = React.lazy(() => import("../Pages/movies"));
@@ -45,6 +47,22 @@ const Index = () => {
             }
           />
         </Route>
+        <Route
+          path="/movies/:id"
+          element={
+            <React.Suspense>
+              <Moviedetails />
+            </React.Suspense>
+          }
+        />
+        <Route
+          path="/tvshows/:id"
+          element={
+            <React.Suspense>
+              <Tvshowdetails />
+            </React.Suspense>
+          }
+        />
       </Routes>
     </React.Fragment>
   );

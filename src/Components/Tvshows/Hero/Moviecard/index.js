@@ -3,8 +3,10 @@ import { Button, Typography } from "@mui/material";
 import { Box, Stack } from "@mui/system";
 import poster from "../../../../Images/poster.jpg";
 import star from "../../../../Images/star.png";
+import { useNavigate } from "react-router-dom";
 
 export const Moviecard = ({ item, image }) => {
+  const navigate = useNavigate();
   const [mouseHover, setMouseHover] = React.useState(false);
 
   const onmouseOver = () => {
@@ -124,6 +126,23 @@ export const Moviecard = ({ item, image }) => {
                 </a>
               </Button>
             </Stack>
+            <Button
+              sx={{
+                background: "yellow",
+                ":hover": {
+                  background: "yellow",
+                },
+                fontSize: "1rem",
+                color: "#000",
+                fontWeight: "bold",
+                borderRadius: "5px",
+              }}
+              onClick={() => {
+                navigate(`/tvshows/${item.id}`);
+              }}
+            >
+              Show Details
+            </Button>
           </Stack>
         )}
       </Box>

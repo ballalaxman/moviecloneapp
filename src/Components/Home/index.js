@@ -2,6 +2,7 @@ import { Typography } from "@mui/material";
 import { Box, Container, Stack } from "@mui/system";
 import React from "react";
 import bgimg from "../../Images/2.jpg";
+import { motion } from "framer-motion";
 
 export const Index = () => {
   return (

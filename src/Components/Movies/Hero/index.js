@@ -20,7 +20,7 @@ const IMG_URL = "https://image.tmdb.org/t/p/w500";
 
 export const Index = () => {
   const [popularMovies, setPopularMovies] = useState(null);
-  const [sort, setSort] = useState("");
+  const [sort, setSort] = useState(1);
 
   useEffect(() => {
     if (sort == 2) {
@@ -39,7 +39,7 @@ export const Index = () => {
         .then((res) => {
           setPopularMovies(res.data.results);
         });
-    } else {
+    } else if (sort == 1) {
       axios
         .get(
           "https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=8af676c968edd09419e7361d6dcd4805"
