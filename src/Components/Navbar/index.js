@@ -60,7 +60,7 @@ const Index = () => {
             fontWeight: "bold",
           }}
         >
-          TMDB
+          MOVIEHUNT
         </span>
       </Typography>
       <Divider />
@@ -131,7 +131,7 @@ const Index = () => {
               }}
               onClick={() => navigate("/")}
             >
-              TMDB
+              MOVIEHUNT
             </Typography>
             <TextField
               sx={{
