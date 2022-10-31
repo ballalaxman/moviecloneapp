@@ -27,6 +27,7 @@ export const Index = () => {
   const [popularMovies, setPopularMovies] = useState(null);
   const [sort, setSort] = useState(1);
   const [searchText, setSearchText] = useState("");
+  const [page, setPage] = useState(1);
 
   useEffect(() => {
     if (sort == 2) {
@@ -56,9 +57,22 @@ export const Index = () => {
     }
   }, [sort]);
 
-  const handleChange = (event) => {
+  const handleChange = (event, value) => {
     setSort(event.target.value);
+    setPage(value);
   };
+
+  useEffect(() => {
+    axios
+      .get(
+        `https://api.themoviedb.org/3/discover/movie?page=${page}&api_key=8af676c968edd09419e7361d6dcd4805`
+      )
+      .then((res) => {
+        setPopularMovies(res.data.results);
+      });
+    window.scrollTo(0, 0);
+  }, [page]);
+
   const handleClick = () => {
     axios
       .get(
@@ -173,7 +187,14 @@ export const Index = () => {
             </Grid>
           ))}
       </Grid>
-      <Pagination count={500} />
+      <Stack
+        alignItems="center"
+        sx={{
+          py: 7,
+        }}
+      >
+        <Pagination count={500} page={page} onChange={handleChange} />
+      </Stack>
     </Box>
   );
 };
