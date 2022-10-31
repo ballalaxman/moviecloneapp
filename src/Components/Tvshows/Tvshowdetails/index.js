@@ -19,7 +19,7 @@ export const Index = () => {
         )
         .then((res) => setItem(res.data));
     }
-  }, []);
+  }, [item]);
 
   useEffect(() => {
     console.log(item);

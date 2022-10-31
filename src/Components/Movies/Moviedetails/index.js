@@ -19,11 +19,11 @@ export const Index = () => {
         )
         .then((res) => setItem(res.data));
     }
-  }, []);
+  }, [item]);
 
-  // useEffect(() => {
-  //   console.log(item);
-  // }, [item]);
+  useEffect(() => {
+    console.log(item);
+  }, []);
 
   return (
     <Stack>
@@ -209,19 +209,8 @@ export const Index = () => {
           </Grid>
         </Grid>
       </Container>
-      {item && (
-        <Box>
-          <Typography
-            sx={{
-              fontSize: "3.5rem",
-              fontWeight: "bold",
-            }}
-          >
-            Recommended
-          </Typography>
-          <Movierecommendations />
-        </Box>
-      )}
+      (
+      <Movierecommendations />)
     </Stack>
   );
 };

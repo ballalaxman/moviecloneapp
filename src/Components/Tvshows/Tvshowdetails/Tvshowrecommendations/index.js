@@ -19,7 +19,7 @@ export const Index = () => {
         `https://api.themoviedb.org/3/tv/${id}/recommendations?api_key=8af676c968edd09419e7361d6dcd4805`
       )
       .then((res) => setRecommendedShows(res.data.results));
-  }, []);
+  }, [recommendedShows]);
 
   return (
     <Box

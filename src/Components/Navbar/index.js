@@ -97,7 +97,8 @@ const Index = () => {
         >
           <Stack
             direction={{ sm: "row", xs: "column" }}
-            justifyContent="space-evenly"
+            // justifyContent="space-evenly"
+            spacing={140}
             flex="start"
             alignItems="center"
             alignContent="center"
@@ -105,7 +106,7 @@ const Index = () => {
               py: 2,
             }}
           >
-            <Stack
+            {/* <Stack
               flex="start"
               direction="row"
               width="100%"
@@ -120,12 +121,13 @@ const Index = () => {
               >
                 <MenuIcon fontSize="32px" />
               </IconButton>
-            </Stack>
+            </Stack> */}
 
             <Typography
               sx={{
                 fontSize: "1.5rem",
                 fontWeight: "bold",
+                mx: 6,
                 cursor: "pointer",
                 display: { xs: "none", sm: "block" },
               }}
@@ -133,7 +135,7 @@ const Index = () => {
             >
               MOVIEHUNT
             </Typography>
-            <TextField
+            {/* <TextField
               sx={{
                 display: { xs: "none", sm: "block" },
               }}
@@ -169,7 +171,7 @@ const Index = () => {
                 },
               }}
               variant="outlined"
-            />
+            /> */}
             <Stack
               direction="row"
               spacing={4}

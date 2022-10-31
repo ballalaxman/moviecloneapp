@@ -10,7 +10,11 @@ import {
   MenuItem,
   FormControl,
   InputLabel,
+  TextField,
+  InputAdornment,
+  Button,
 } from "@mui/material";
+import SearchIcon from "@mui/icons-material/Search";
 import { Container } from "@mui/system";
 
 const API_KEY = "api_key=8af676c968edd09419e7361d6dcd4805";
@@ -21,6 +25,7 @@ const IMG_URL = "https://image.tmdb.org/t/p/w500";
 export const Index = () => {
   const [popularTvshows, setpopularTvshows] = useState(null);
   const [sort, setSort] = useState(1);
+  const [searchText, setSearchText] = useState("");
 
   useEffect(() => {
     if (sort == 2) {
@@ -57,6 +62,15 @@ export const Index = () => {
   const handleChange = (event) => {
     setSort(event.target.value);
   };
+  const handleClick = () => {
+    axios
+      .get(
+        `https://api.themoviedb.org/3/search/movie?query=${searchText}&api_key=8af676c968edd09419e7361d6dcd4805`
+      )
+      .then((res) => {
+        setpopularTvshows(res.data.results);
+      });
+  };
 
   return (
     <Box
@@ -82,6 +96,47 @@ export const Index = () => {
           >
             Tv shows
           </Typography>
+          <TextField
+            onChange={(e) => {
+              setSearchText(e.target.value);
+            }}
+            sx={{
+              display: { xs: "none", sm: "block" },
+            }}
+            placeholder="Search here for movies and Tv shows..."
+            id="input-with-icon-textfield"
+            InputProps={{
+              startAdornment: (
+                <InputAdornment position="start">
+                  <SearchIcon />
+                </InputAdornment>
+              ),
+              endAdornment: (
+                <InputAdornment position="end">
+                  <Button
+                    variant="contained"
+                    color="warning"
+                    sx={{
+                      borderRadius: "25px",
+                      height: "50px",
+                      width: "100px",
+                    }}
+                    onClick={handleClick}
+                  >
+                    Search
+                  </Button>
+                </InputAdornment>
+              ),
+              style: {
+                backgroundColor: "#737170",
+                borderRadius: "25px",
+                height: "50px",
+                width: "800px",
+                paddingRight: "0px",
+              },
+            }}
+            variant="outlined"
+          />
           <Box sx={{ minWidth: 220 }}>
             <FormControl fullWidth>
               <InputLabel id="demo-simple-select-label">Sort by</InputLabel>

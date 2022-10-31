@@ -55,6 +55,14 @@ const Index = () => {
             </React.Suspense>
           }
         />
+        {/* <Route
+          path="/recommendmovies/:id"
+          element={
+            <React.Suspense>
+              <Moviedetails />
+            </React.Suspense>
+          } */}
+        />
         <Route
           path="/tvshows/:id"
           element={

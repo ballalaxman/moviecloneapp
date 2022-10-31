@@ -138,7 +138,7 @@ export const Moviecard = ({ item, image }) => {
                 borderRadius: "5px",
               }}
               onClick={() => {
-                navigate(`/movies/${item.id}`);
+                navigate(`/tvshows/${item.id}`);
               }}
             >
               Show Details

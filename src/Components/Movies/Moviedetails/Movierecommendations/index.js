@@ -1,7 +1,7 @@
 import Recommendedcard from "./Recommendedcard";
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { Grid, Box } from "@mui/material";
+import { Grid, Box, Typography } from "@mui/material";
 import { useParams } from "react-router-dom";
 
 // const API_KEY = "api_key=8af676c968edd09419e7361d6dcd4805";
@@ -19,14 +19,26 @@ export const Index = () => {
         `https://api.themoviedb.org/3/movie/${id}/recommendations?api_key=8af676c968edd09419e7361d6dcd4805`
       )
       .then((res) => setRecommendedMovies(res.data.results));
-  }, []);
+  }, [recommendedMovies]);
 
   return (
     <Box
       sx={{
-        py: 15,
+        py: 3,
       }}
     >
+      <Typography
+        sx={{
+          fontSize: "3.5rem",
+          fontWeight: "bold",
+          mx: 6,
+          py: 8,
+        }}
+      >
+        {recommendedMovies?.results
+          ? "Recommended"
+          : "No Recommendations found"}
+      </Typography>
       <Grid
         container
         // spacing={3}

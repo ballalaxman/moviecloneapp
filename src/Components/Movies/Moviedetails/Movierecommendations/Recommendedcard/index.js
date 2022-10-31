@@ -3,9 +3,10 @@ import { Button, Typography } from "@mui/material";
 import { Box, Stack } from "@mui/system";
 import poster from "../../../../../Images/poster.jpg";
 import star from "../../../../../Images/star.png";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 export const Moviecard = ({ item, image }) => {
+  const { id } = useParams();
   const navigate = useNavigate();
   const [mouseHover, setMouseHover] = React.useState(false);
 
