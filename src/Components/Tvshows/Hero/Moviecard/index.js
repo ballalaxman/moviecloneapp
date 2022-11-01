@@ -54,7 +54,7 @@ export const Moviecard = ({ item, image }) => {
                 fontWeight: "bold",
               }}
             >
-              {item.original_name}
+              {item.original_name ? item.original_name : item.original_title}
             </Typography>
             <Typography
               align="center"
