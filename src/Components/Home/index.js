@@ -3,26 +3,32 @@ import { Box, Container, Stack } from "@mui/system";
 import React from "react";
 import bgimg from "../../Images/2.jpg";
 import { motion } from "framer-motion";
+import Image2 from "../../Images/Image2.jpg";
+import Image1 from "../../Images/Image1.jpg";
+import Image3 from "../../Images/Image3.jpg";
 
 export const Index = () => {
   return (
     <div>
-      <Container
-        maxWidth="100%"
+      <Stack
+        direction="row"
+        width="100%"
         sx={{
-          backgroundImage: `url(${bgimg})`,
-          boxShadow: "inset 140px 225px 140px 225px rgba(0, 0, 0, 0.8)",
-          backgroundSize: "cover",
-          backgroundRepeat: "no-repeat",
-          backgroundPosition: "center",
           height: "915px",
-          py: 10,
+          mt: 9,
         }}
       >
         <Stack
-          direction="column"
+          sx={{
+            width: "50%",
+          }}
+        >
+          <img src={Image1} width="100%" height="100%" />
+        </Stack>
+        <Stack
           justifyContent="center"
           sx={{
+            width: "50%",
             height: "100%",
           }}
         >
@@ -31,14 +37,82 @@ export const Index = () => {
             sx={{
               fontSize: "3.5rem",
               fontWeight: "bold",
-              color: "white",
+              color: "#000",
             }}
+            data-aos="fade-up"
           >
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum
-            dolor sit amet, consectetur adipiscing elit.
+            A forest to hunt your favourite movies and tvshows
           </Typography>
         </Stack>
-      </Container>
+      </Stack>
+      <Stack
+        direction="row"
+        width="100%"
+        sx={{
+          height: "845px",
+        }}
+      >
+        <Stack
+          justifyContent="center"
+          sx={{
+            width: "50%",
+            height: "100%",
+          }}
+        >
+          <Typography
+            align="center"
+            sx={{
+              fontSize: "3.5rem",
+              fontWeight: "bold",
+              color: "#000",
+            }}
+            data-aos="fade-up"
+          >
+            A forest to hunt your favourite movies and tvshows
+          </Typography>
+        </Stack>
+        <Stack
+          sx={{
+            width: "50%",
+          }}
+        >
+          <img src={Image2} width="100%" height="100%" />
+        </Stack>
+      </Stack>
+      <Stack
+        direction="row"
+        width="100%"
+        sx={{
+          height: "915px",
+        }}
+      >
+        <Stack
+          sx={{
+            width: "50%",
+          }}
+        >
+          <img src={Image3} width="100%" height="100%" />
+        </Stack>
+        <Stack
+          justifyContent="center"
+          sx={{
+            width: "50%",
+            height: "100%",
+          }}
+        >
+          <Typography
+            align="center"
+            sx={{
+              fontSize: "3.5rem",
+              fontWeight: "bold",
+              color: "#000",
+            }}
+            data-aos="fade-up"
+          >
+            A forest to hunt your favourite movies and tvshows
+          </Typography>
+        </Stack>
+      </Stack>
     </div>
   );
 };

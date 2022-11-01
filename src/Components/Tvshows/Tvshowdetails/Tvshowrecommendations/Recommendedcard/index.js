@@ -20,6 +20,7 @@ export const Moviecard = ({ item, image }) => {
       <Box
         onMouseOver={onmouseOver}
         onMouseOut={onmouseLeave}
+        data-aos="zoom-in"
         sx={{
           backgroundImage: item.poster_path
             ? `url(${image + item.poster_path})`
@@ -39,6 +40,7 @@ export const Moviecard = ({ item, image }) => {
           <Stack
             direction="column"
             justifyContent="space-between"
+            data-aos="zoom-in"
             sx={{
               width: "100%",
               height: "100%",
@@ -52,7 +54,7 @@ export const Moviecard = ({ item, image }) => {
                 fontWeight: "bold",
               }}
             >
-              {item.original_title}
+              {item.original_name}
             </Typography>
             <Typography
               align="center"

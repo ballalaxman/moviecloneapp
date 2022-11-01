@@ -21,9 +21,9 @@ export const Index = () => {
     }
   }, [item]);
 
-  useEffect(() => {
-    console.log(item);
-  }, []);
+  // useEffect(() => {
+  //   console.log(item);
+  // }, []);
 
   return (
     <Stack>

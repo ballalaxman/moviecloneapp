@@ -25,37 +25,20 @@ const IMG_URL = "https://image.tmdb.org/t/p/w500";
 
 export const Index = () => {
   const [popularTvshows, setpopularTvshows] = useState(null);
-  const [sort, setSort] = useState(1);
+  const [sort, setSort] = useState("popularity.desc");
   const [searchText, setSearchText] = useState("");
   const [page, setPage] = useState(1);
 
   useEffect(() => {
-    if (sort == 2) {
-      axios
-        .get(
-          "https://api.themoviedb.org/3/discover/tv?sort_by=primary_release_date.desc&api_key=8af676c968edd09419e7361d6dcd4805"
-        )
-        .then((res) => {
-          setpopularTvshows(res.data.results);
-        });
-    } else if (sort == 3) {
-      axios
-        .get(
-          "https://api.themoviedb.org/3/discover/tv?sort_by=vote_average.desc&api_key=8af676c968edd09419e7361d6dcd4805"
-        )
-        .then((res) => {
-          setpopularTvshows(res.data.results);
-        });
-    } else if (sort == 1) {
-      axios
-        .get(
-          "https://api.themoviedb.org/3/discover/tv?sort_by=popularity.desc&api_key=8af676c968edd09419e7361d6dcd4805"
-        )
-        .then((res) => {
-          setpopularTvshows(res.data.results);
-        });
-    }
-  }, [sort]);
+    axios
+      .get(
+        `https://api.themoviedb.org/3/discover/tv?sort_by=${sort}&page=${page}&api_key=8af676c968edd09419e7361d6dcd4805`
+      )
+      .then((res) => {
+        setpopularTvshows(res.data.results);
+      });
+    window.scrollTo(0, 0);
+  }, [sort, page]);
 
   // useEffect(() => {
   //   console.log(popularTvshows);
@@ -65,17 +48,6 @@ export const Index = () => {
     setSort(event.target.value);
     setPage(value);
   };
-
-  useEffect(() => {
-    axios
-      .get(
-        `https://api.themoviedb.org/3/discover/tv?page=${page}&api_key=8af676c968edd09419e7361d6dcd4805`
-      )
-      .then((res) => {
-        setpopularTvshows(res.data.results);
-      });
-    window.scrollTo(0, 0);
-  }, [page]);
 
   const handleClick = () => {
     axios
@@ -162,9 +134,11 @@ export const Index = () => {
                 onChange={handleChange}
                 value={sort}
               >
-                <MenuItem value={1}>Popular</MenuItem>
-                <MenuItem value={2}>New Arrivals</MenuItem>
-                <MenuItem value={3}>Top Rated</MenuItem>
+                <MenuItem value={"popularity.desc"}>Popular</MenuItem>
+                <MenuItem value={"primary_release_date.desc"}>
+                  New Arrivals
+                </MenuItem>
+                <MenuItem value={"vote_average.desc"}>Top Rated</MenuItem>
               </Select>
             </FormControl>
           </Box>

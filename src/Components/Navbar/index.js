@@ -1,19 +1,10 @@
 import React, { useState } from "react";
-import SearchIcon from "@mui/icons-material/Search";
-import MenuIcon from "@mui/icons-material/Menu";
-import {
-  TextField,
-  InputAdornment,
-  Button,
-  Drawer,
-  Typography,
-  Divider,
-} from "@mui/material";
+import { Button, Drawer, Typography, Divider } from "@mui/material";
 import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemText from "@mui/material/ListItemText";
-import { Box, IconButton } from "@mui/material";
+import { Box } from "@mui/material";
 import { useNavigate, Outlet, useLocation } from "react-router-dom";
 import { Stack } from "@mui/system";
 const drawerWidth = 240;
@@ -85,12 +76,13 @@ const Index = () => {
     <React.Fragment>
       <>
         <Box
+          zIndex="7"
           width="100%"
           sx={{
             background: "#000",
             color: "#fff",
             boxShadow: 4,
-            height: "80px",
+            height: "75px",
             position: "fixed",
             top: "0px",
           }}
@@ -98,7 +90,7 @@ const Index = () => {
           <Stack
             direction={{ sm: "row", xs: "column" }}
             // justifyContent="space-evenly"
-            spacing={140}
+            spacing={160}
             flex="start"
             alignItems="center"
             alignContent="center"
@@ -106,26 +98,9 @@ const Index = () => {
               py: 2,
             }}
           >
-            {/* <Stack
-              flex="start"
-              direction="row"
-              width="100%"
-              sx={{ display: { sm: "none", padding: "0px" } }}
-            >
-              <IconButton
-                size="large"
-                color="primary"
-                aria-label="open drawer"
-                edge="start"
-                onClick={handleDrawerToggle}
-              >
-                <MenuIcon fontSize="32px" />
-              </IconButton>
-            </Stack> */}
-
             <Typography
               sx={{
-                fontSize: "1.5rem",
+                fontSize: "1.1rem",
                 fontWeight: "bold",
                 mx: 6,
                 cursor: "pointer",
@@ -135,43 +110,7 @@ const Index = () => {
             >
               MOVIEHUNT
             </Typography>
-            {/* <TextField
-              sx={{
-                display: { xs: "none", sm: "block" },
-              }}
-              placeholder="Search here for movies and Tv shows..."
-              id="input-with-icon-textfield"
-              InputProps={{
-                startAdornment: (
-                  <InputAdornment position="start">
-                    <SearchIcon />
-                  </InputAdornment>
-                ),
-                endAdornment: (
-                  <InputAdornment position="end">
-                    <Button
-                      variant="contained"
-                      color="warning"
-                      sx={{
-                        borderRadius: "25px",
-                        height: "50px",
-                        width: "100px",
-                      }}
-                    >
-                      Search
-                    </Button>
-                  </InputAdornment>
-                ),
-                style: {
-                  backgroundColor: "#737170",
-                  borderRadius: "25px",
-                  height: "50px",
-                  width: "800px",
-                  paddingRight: "0px",
-                },
-              }}
-              variant="outlined"
-            /> */}
+
             <Stack
               direction="row"
               spacing={4}
@@ -189,7 +128,7 @@ const Index = () => {
                     borderBottom: location.pathname.includes(item.path) //For the line under the navbar items
                       ? `2px solid #bfbf`
                       : "none",
-                    fontSize: "1.5rem",
+                    fontSize: "1.1rem",
                     fontWeight: "bold",
                     color: "#fff",
                   }}

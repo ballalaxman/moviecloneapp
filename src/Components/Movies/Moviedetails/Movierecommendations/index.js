@@ -28,6 +28,7 @@ export const Index = () => {
       }}
     >
       <Typography
+        data-aos="fade-up"
         sx={{
           fontSize: "3.5rem",
           fontWeight: "bold",
@@ -49,6 +50,7 @@ export const Index = () => {
           recommendedMovies.map((item) => (
             <Grid
               item
+              data-aos="zoom-in"
               xs={2}
               sm={3}
               sx={{
