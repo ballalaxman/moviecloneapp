@@ -36,9 +36,11 @@ export const Index = () => {
           py: 8,
         }}
       >
-        {recommendedMovies?.results
+        {" "}
+        Recommended
+        {/* {recommendedMovies?.results
           ? "Recommended"
-          : "No Recommendations found"}
+          : "No Recommendations found"} */}
       </Typography>
       <Grid
         container

@@ -12,17 +12,17 @@ const drawerWidth = 240;
 const navItems = [
   {
     id: 0,
-    name: "MOVIES",
+    name: "Movies",
     path: "/movies",
   },
   {
     id: 1,
-    name: "TVSHOWS",
+    name: "Tvshows",
     path: "/tvshows",
   },
   {
     id: 2,
-    name: "LOGIN",
+    name: "Login",
     path: "/auth",
   },
 ];
@@ -58,14 +58,14 @@ const Index = () => {
       <List>
         {navItems.map((item) => (
           <ListItem key={item.id} disablePadding>
-            <ListItemButton sx={{ textAlign: "center" }}>
+            <Button sx={{ textAlign: "center" }}>
               <ListItemText
                 primary={item.name}
                 onClick={() => {
                   navigate(`${item.path}`);
                 }}
               />
-            </ListItemButton>
+            </Button>
           </ListItem>
         ))}
       </List>
@@ -128,9 +128,10 @@ const Index = () => {
                     borderBottom: location.pathname.includes(item.path) //For the line under the navbar items
                       ? `2px solid #bfbf`
                       : "none",
-                    fontSize: "1.1rem",
-                    fontWeight: "bold",
+                    fontSize: "1.3rem",
+                    fontWeight: "600",
                     color: "#fff",
+                    textTransform: "capitalize",
                   }}
                 >
                   {item.name}

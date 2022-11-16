@@ -1,5 +1,5 @@
 import { Typography } from "@mui/material";
-import { borderRadius, Box, Container, Stack } from "@mui/system";
+import { Box, Stack } from "@mui/system";
 import React from "react";
 import bgimg from "../../Images/1.png";
 import Image2 from "../../Images/image2.jpg";
@@ -131,6 +131,7 @@ export const Index = () => {
         height="80px"
         sx={{
           background: "#D3D3D3",
+          alignItems: "center",
         }}
       >
         <Stack
@@ -143,6 +144,16 @@ export const Index = () => {
             px: 6,
           }}
         >
+          {/* <Typography
+            sx={{
+              fontSize: "1.3rem",
+              fontWeight: "bold",
+            }}
+          >
+            <a href="https://github.com/ballalaxman/moviehunt" target="blank">
+              Source code
+            </a>
+          </Typography> */}
           <Typography
             sx={{
               fontSize: "1.3rem",

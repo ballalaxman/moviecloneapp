@@ -21,6 +21,7 @@ export const Moviecard = ({ item, image }) => {
       <Box
         onMouseOver={onmouseOver}
         onMouseOut={onmouseLeave}
+        data-aos="zoom-in"
         sx={{
           backgroundImage: item.poster_path
             ? `url(${image + item.poster_path})`

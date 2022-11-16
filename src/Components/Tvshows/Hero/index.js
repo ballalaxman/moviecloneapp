@@ -12,7 +12,6 @@ import {
   InputLabel,
   TextField,
   InputAdornment,
-  Button,
   Pagination,
 } from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
@@ -40,10 +39,6 @@ export const Index = () => {
     window.scrollTo(0, 0);
   }, [sort, page]);
 
-  // useEffect(() => {
-  //   console.log(popularTvshows);
-  // }, [sort]);
-
   const handleChange = (event, value) => {
     setSort(event.target.value);
     setPage(value);
@@ -62,7 +57,7 @@ export const Index = () => {
   return (
     <Box
       sx={{
-        py: 15,
+        mt: 15,
       }}
     >
       <Container maxWidth="sx">
@@ -71,7 +66,8 @@ export const Index = () => {
           justifyContent={"space-between"}
           alignItems={"center"}
           sx={{
-            p: 4,
+            py: 4,
+            px: 15,
           }}
         >
           <Typography
@@ -93,33 +89,16 @@ export const Index = () => {
             placeholder="Search here for movies and Tv shows..."
             id="input-with-icon-textfield"
             InputProps={{
-              startAdornment: (
-                <InputAdornment position="start">
-                  <SearchIcon />
-                </InputAdornment>
-              ),
               endAdornment: (
                 <InputAdornment position="end">
-                  <Button
-                    variant="contained"
-                    color="warning"
-                    sx={{
-                      borderRadius: "25px",
-                      height: "50px",
-                      width: "100px",
-                    }}
-                    onClick={handleClick}
-                  >
-                    Search
-                  </Button>
+                  <SearchIcon onClick={handleClick} curser="pointer" />
                 </InputAdornment>
               ),
               style: {
-                backgroundColor: "#737170",
-                borderRadius: "25px",
+                borderRadius: "15px",
                 height: "50px",
                 width: "800px",
-                paddingRight: "0px",
+                paddingRight: "15px",
               },
             }}
             variant="outlined"
@@ -144,7 +123,7 @@ export const Index = () => {
           </Box>
         </Stack>
       </Container>
-      <Grid container columnSpacing={3} rowSpacing={10}>
+      <Grid container columnSpacing={3} rowSpacing={8} sx={{ px: 12 }}>
         {popularTvshows &&
           popularTvshows.map((item) => (
             <Grid
