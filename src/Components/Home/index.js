@@ -81,7 +81,7 @@ export const Index = () => {
             width="100%"
             height="100%"
             data-aos="flip-left"
-            data-aos-duration="1500"
+            data-aos-duration="1000"
           />
         </Stack>
       </Stack>
@@ -102,7 +102,7 @@ export const Index = () => {
             width="100%"
             height="100%"
             data-aos="flip-left"
-            data-aos-duration="1500"
+            data-aos-duration="1000"
           />
         </Stack>
         <Stack

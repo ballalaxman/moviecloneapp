@@ -4,6 +4,7 @@ import { Container, Stack } from "@mui/system";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import Movierecommendations from "./Movierecommendations";
+import Navbar from "../../Navbar";
 
 const IMG_URL = "https://image.tmdb.org/t/p/w500";
 
@@ -23,6 +24,7 @@ export const Index = () => {
 
   return (
     <Stack>
+      <Navbar />
       <Container
         maxWidth="xl"
         sx={{
@@ -191,14 +193,6 @@ export const Index = () => {
                   }}
                 >
                   {item?.overview}
-                  {/* <span
-                  style={{
-                    padding: "0rem",
-                  }}
-                  dangerouslySetInnerHTML={{
-                    __html: `${item?.show?.summary}`,
-                  }}
-                /> */}
                 </Typography>
               </Stack>
             </Stack>

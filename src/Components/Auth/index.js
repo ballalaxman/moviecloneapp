@@ -34,7 +34,7 @@ const Index = () => {
   return (
     <React.Fragment>
       <Container
-        maxWidth="lg"
+        maxWidth="xs"
         sx={{
           py: 15,
         }}

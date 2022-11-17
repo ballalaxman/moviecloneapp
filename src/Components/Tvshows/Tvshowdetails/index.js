@@ -4,6 +4,7 @@ import { Container, Stack } from "@mui/system";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import Tvshowrecommendations from "./Tvshowrecommendations";
+import Navbar from "../../Navbar";
 
 const IMG_URL = "https://image.tmdb.org/t/p/w500";
 
@@ -23,6 +24,7 @@ export const Index = () => {
 
   return (
     <Stack>
+      <Navbar />
       <Container
         maxWidth="xl"
         sx={{
@@ -239,14 +241,6 @@ export const Index = () => {
           </Grid>
         </Grid>
       </Container>
-      <Typography
-        sx={{
-          fontSize: "3.5rem",
-          fontWeight: "bold",
-        }}
-      >
-        Recommended
-      </Typography>
       <Tvshowrecommendations />
     </Stack>
   );
